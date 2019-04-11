@@ -154,7 +154,7 @@ function validarImagen(){
                 $arrayTurnos = json_decode($turnosDatosActuales, true);
                 //Asignar ID, permitiendo tener imagenes con "el mismo nombre" desde el punto de vista del usuario.
                 $id = @(sizeof($arrayTurnos)); 
-                $GLOBALS['dirImagen'] .= $id;
+                $GLOBALS['dirImagen'] = $id.$GLOBALS['dirImagen'];
 
                 if (file_exists($GLOBALS['dirImagen'])) {
                     array_push($GLOBALS['fallo'],"Ya existe una imagen llamada: ". $filename);//ERROR: imagen con nombre repetido
@@ -192,7 +192,7 @@ function almacenarTurno(){
             'pelo'=> $_POST['pelo'],
             'fechaTurno'=> $_POST['fechaTurno'],
             'turno'=> $_POST['turno'],
-            'imagen'=> $_FILES["imagen"]["name"].$id
+            'imagen'=> $id.$_FILES["imagen"]["name"]
         );
         $arrayTurnos[] = $nuevoTurno;
         $arrayTurnosActualizado = json_encode($arrayTurnos);
