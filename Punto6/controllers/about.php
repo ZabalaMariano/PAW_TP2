@@ -19,7 +19,11 @@ debe repetirse).<br/><br/>
 Para generar el sistema de persistencia, se aconseja estudiar algún mecanismo de serialización de<br/>
 datos.<br/><br/>
 <b>¿Cómo relaciona la imagen del turno con los datos del turno? Comente alternativas que evaluó y<br/>
+<<<<<<< Updated upstream
 opción elegida.</b><br/>
+=======
+opción elegida.</b></br>
+>>>>>>> Stashed changes
 Para relacionar la imagen del turno con los datos del turno se almacenó en el archivo JSON el nombre de<br/>
 la imagen, junto con el resto de los datos. Luego, como los nombres de las imagenes no se repiten en la<br/>
 carpeta \"diagnosticos\", al recuperar los datos del turno buscamos en la carpeta antes mencionada<br/>
