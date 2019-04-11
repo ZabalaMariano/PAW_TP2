@@ -1,0 +1,12 @@
+Nombre: Brizuela Maximiliano
+Legajo: 112466
+Correo: maxin.brizuela@gmail.com
+
+Nombre: Mova Ignacio
+Legajo: 143531
+Correo electrónico: ignaciomova@outlook.com
+
+Nombre: Zabala Mariano
+Legajo: 143116
+Correo: marianol.zabala@gmail.com
+
