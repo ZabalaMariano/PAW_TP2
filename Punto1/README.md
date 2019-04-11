@@ -7,7 +7,7 @@ Las misma se encuentran dentro del menú de navegación de la página web en el 
 La guía de ejecución para este ejercicio la podrá encontrar en el README.md general del proyecto. Los pasos para ejecutar el ejercicio son los mismos para todos los ejercicios del trabajo práctico.
 
 ## Consideraciones
-Para la realización del ejercicio respetamos la estructura MVC proveida en clase. Los scripts y directorios que incluimos son: 
--Dentro del directorio controllers: llamaValidarPunto1.php, punto1.php, y puntoValidado.php
--Dentro del directorio models: ServerSidePunto1.php
--Dentro del directorio views: punto1.view.php, y punto1.view.validado.php
+Para la realización del ejercicio respetamos la estructura MVC proveida en clase. Los scripts y directorios que incluimos son:<br />
+-Dentro del directorio controllers: llamaValidarPunto1.php, punto1.php, y puntoValidado.php<br>
+-Dentro del directorio models: ServerSidePunto1.php<br>
+-Dentro del directorio views: punto1.view.php, y punto1.view.validado.php<br>
