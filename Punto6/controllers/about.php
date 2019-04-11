@@ -27,7 +27,11 @@ opción elegida.</b></br>
 Para relacionar la imagen del turno con los datos del turno se almacenó en el archivo JSON el nombre de<br/>
 la imagen, junto con el resto de los datos. Luego, como los nombres de las imagenes no se repiten en la<br/>
 carpeta \"diagnosticos\", al recuperar los datos del turno buscamos en la carpeta antes mencionada<br/>
-la única imagen con ese nombre.<br/><br/>";
+la única imagen con ese nombre.<br/>
+Además, a diferencia del punto 4, se aprovecha un ID generado para cada ficha en el JSON que nos<br/>
+permite como usuarios elegir una imagen sin importar su nombre, ya que el servidor le añade este<br/>
+ID único diferenciando su imagen.<br/><br/>";
+
 
 
 require 'views/about.view.php';

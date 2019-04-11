@@ -149,14 +149,24 @@ function validarImagen(){
 
         if(in_array($extensionImagen, $extensionesPermitidas))//Pregunto si la extension es una de las validas
         {
-            if (file_exists($GLOBALS['dirImagen'])) {
-                array_push($GLOBALS['fallo'],"Ya existe una imagen llamada: ". $filename);//ERROR: imagen con nombre repetido
-            }elseif(!$GLOBALS['fallo']){
-                //Si no hay otro error guardo la imagen. Pregunto recien aca para que, 
-                //si la imagen tiene un error, se le indique al usuario junto con los demas errores.
-                //Si preguntara al inicio de validarImagen no tendria mensaje de error de la imagen (si lo hubiese)
-                $tmp = $_FILES["imagen"]["tmp_name"];//Path actual de la imagen
-                move_uploaded_file($tmp, $GLOBALS['dirImagen']);//Guardar imagen nueva ubicacion
+            if(file_exists('turnos/turnos.json')){//Recupero el json para agregar al final del nombre de la imagen el id que le corresponde
+                $turnosDatosActuales = file_get_contents('turnos/turnos.json');
+                $arrayTurnos = json_decode($turnosDatosActuales, true);
+                //Asignar ID, permitiendo tener imagenes con "el mismo nombre" desde el punto de vista del usuario.
+                $id = @(sizeof($arrayTurnos)); 
+                $GLOBALS['dirImagen'] .= $id;
+
+                if (file_exists($GLOBALS['dirImagen'])) {
+                    array_push($GLOBALS['fallo'],"Ya existe una imagen llamada: ". $filename);//ERROR: imagen con nombre repetido
+                }elseif(!$GLOBALS['fallo']){
+                    //Si no hay otro error guardo la imagen. Pregunto recien aca para que, 
+                    //si la imagen tiene un error, se le indique al usuario junto con los demas errores.
+                    //Si preguntara al inicio de validarImagen no tendria mensaje de error de la imagen (si lo hubiese)
+                    $tmp = $_FILES["imagen"]["tmp_name"];//Path actual de la imagen
+                    move_uploaded_file($tmp, $GLOBALS['dirImagen']);//Guardar imagen nueva ubicacion
+                }
+            }else{
+                array_push($GLOBALS['fallo'],"No existe el archivo turnos.json");
             }
         }else{//ERROR: imagen con extension invalida
             array_push($GLOBALS['fallo'],"Imagen con extension invalida: debe ser png o jpg.");
@@ -182,7 +192,7 @@ function almacenarTurno(){
             'pelo'=> $_POST['pelo'],
             'fechaTurno'=> $_POST['fechaTurno'],
             'turno'=> $_POST['turno'],
-            'imagen'=> $_FILES["imagen"]["name"]
+            'imagen'=> $_FILES["imagen"]["name"].$id
         );
         $arrayTurnos[] = $nuevoTurno;
         $arrayTurnosActualizado = json_encode($arrayTurnos);
