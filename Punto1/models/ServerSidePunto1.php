@@ -27,6 +27,7 @@ if(isset($_POST["Enviar"])){//Si apretamos el boton Enviar
 
 function validarCampos(){
     validarCamposObligatorios();
+    validarTelefono();
     validarNombre();
     validarEmail();
     validarNumero();
@@ -48,10 +49,15 @@ function validarCamposObligatorios(){
     }
 }
 
-function validarNumero(){
-    if (!filter_var($_POST["telefono"], FILTER_VALIDATE_INT)) {
-        array_push($GLOBALS['fallo'],"Fallo el telefono ingresado");
+function validarTelefono(){
+    if (strlen($GLOBALS['telefono'])>13) {
+        $GLOBALS['errores'][] = 'Fallo el teléfono';
+    }elseif (!preg_match("/^([0-9\+][0-9]+)$/",$GLOBALS['telefono'])) {
+        $GLOBALS['errores'][] = 'Fallo el teléfono';
     }
+}
+
+function validarNumero(){
     if (!filter_var($_POST["edad"], FILTER_VALIDATE_INT, array("options" => array("min_range"=>0, "max_range"=>150)))) {
         array_push($GLOBALS['fallo'],"Fallo la edad ingresada");
     }
@@ -90,8 +96,9 @@ function validarPelo(){
 }
 
 function validarTurno(){
-    if(!preg_match("/^(0[8-9]|1[0-6]):(00|15|30|45)$/",$_POST["turno"])){
-        array_push($GLOBALS['fallo'],"Fallo el horario del turno ingresado");
+    if((!preg_match("/^(0[8-9]|1[0-6]):(00|15|30|45)$/",$GLOBALS['horario_turno'])) &&
+       (!preg_match("/^(17):(00)$/",$GLOBALS['horario_turno']))){
+        $GLOBALS['errores'][] = 'Fallo el horario del turno';
     }
 }
 

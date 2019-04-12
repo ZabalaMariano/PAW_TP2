@@ -8,7 +8,12 @@
     <link href="<?= statics('punto1.css') ?>" rel="stylesheet" type="text/css">
 </head>
 <body class="body">
-    <?php require 'nav.view.php' ?>
+    <?php 
+        require 'nav.view.php';
+        $fecha_hoy = date ("Y-m-d", strtotime('today')); //obtengo la fecha actual
+         $fecha_min = date( "Y-m-d", strtotime("-151 year", strtotime( $fecha_hoy ))); //fecha mínima para el año de nacimiento
+         $manana = date("Y-m-d", strtotime('tomorrow')); //fecha de mañana para solicitar el turno
+     ?>
     <h1><?= $main_title ?></h1>
 
     <section class="seccionPrincipal">
@@ -32,20 +37,20 @@
             <input type="email" name="email" value="<?=$email?>" placeholder="Ingrese dirección de email" title="Ingrese una dirección de email válida: user@dom.com" required>
 
             <label for="telefono">*Teléfono: </label>
-            <input type="number" name="telefono" min="0" value="<?=$telefono?>" placeholder="Ingrese número de teléfono" pattern="[0-9]+" maxlength="13"  title="Solo se admiten números sin espacios ni guiones" required>
+            <input type="tel" name="telefono" min="0" value="<?=$telefono?>" placeholder="Ingrese número de teléfono" pattern="[0-9\+][0-9]+" maxlength="13"  title="Solo se admiten números sin espacios ni guiones" required>
 
             <label for="edad">Edad: </label>
-            <input type="number" name="edad" min="0" value="<?=$edad?>" placeholder="Ingrese su edad">
+            <input type="number" name="edad" min="0" max="150" value="<?=$edad?>">
 
             <label for="talla">Talla de calzado: </label>
             <input type="number" name="talla" min="20" max="45" value="<?=$talla?>">
 
             <label for="altura">Altura: </label>
             <input type="range" name="altura" min="0" max="250" value="<?=$altura?>">
-            <p class="cm"><output for="altura" name="valorAltura">0</output>cm</p>
+            <p class="cm"><output for="altura" name="valorAltura"><??$altura?></output>cm</p>
 
             <label for="fechaNacimiento">*Fecha de nacimiento: </label>
-            <input type="date" name="fechaNacimiento" value="<?=$fechaNacimiento?>" required>
+            <input type="date" name="fechaNacimiento" value="<?=$fechaNacimiento?>" min="<?=$fecha_min?>" max="<?=$fecha_hoy?>" required>
 
             <label for="pelo">Color de pelo: </label>
             <select id="1" name="pelo" value="<?=$pelo?>">
@@ -59,10 +64,10 @@
             </select>
 
             <label for="fechaTurno">*Fecha del turno: </label>
-            <input type="date" name="fechaTurno" value="<?=$fechaTurno?>" required>
+            <input type="date" name="fechaTurno" min="<?=$manana?>" value="<?=$fechaTurno?>" required>
 
             <label for="turno">Horario del turno: </label>
-            <input type="time" name="turno" min="08:00:00" max="16:45:00" step="900" value="<?=$turno?>">
+            <input type="time" name="turno" min="08:00" max="17:00" step="900" value="<?=$turno?>">
             <small>Nuestro horario de atención es de 08:00 AM a 05:00 PM Hs</small>
 
             <input class="boton" type="submit" value="Enviar" name="Enviar">
