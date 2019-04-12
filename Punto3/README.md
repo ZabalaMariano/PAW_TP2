@@ -9,7 +9,7 @@ La guía de ejecución para este ejercicio la podrá encontrar en el README.md g
 ## Consideraciones
 Para la realización del ejercicio respetamos la estructura MVC proveida en clase. Los scripts y directorios que incluimos son:<br />
 -Dentro del directorio controllers: llamaValidarPunto3.php, punto3.php, y punto3.validado.php<br>
--Dentro del directorio models: ServerSidePunto2.php<br>
--Dentro del directorio views: punto2.view.php, y punto2.view.validado.php<br>
+-Dentro del directorio models: ServerSidePunto3.php<br>
+-Dentro del directorio views: punto3.view.php, y punto3.view.validado.php<br>
 -Se agrega un directorio "img" con el fin de contener las imagenes que se adjuntan en la respuesta a la consigna<br><br>
 Para verificar las validaciones del lado del servidor, puede desactivar las validaciones desde el formulario con el agregado del atributo *novalidate*.
