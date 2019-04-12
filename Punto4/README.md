@@ -1,30 +1,16 @@
-# MVC Nivel 1
+# PUNTO 4
 
-Primer ejemplo de estructura de Proyecto en PHP para una App Web
+## Consigna
+Las misma se encuentra dentro del menú de navegación de la página web en el item "Consigna". Siga las instrucciones de la guía de ejecución que se detalla a continuación, y una vez que acceda a la página web podrá encontrarlas a través del menú. Si hubieran preguntas teóricas en el ejercicio, estas son contestadas también en la sección de consigna.
 
-## Estructura
+## Guía de ejecución del ejercicio
+La guía de ejecución para este ejercicio la podrá encontrar en el README.md general del proyecto. Los pasos para ejecutar el ejercicio son los mismos para todos los ejercicios del trabajo práctico.
 
-**index.php** es el punto de entrada a la app
+## Consideraciones
+Para la realización del ejercicio respetamos la estructura MVC proveida en clase. Los scripts y directorios que incluimos son:<br />
+-Dentro del directorio controllers: llamaValidarPunto4.php, punto4.php, y punto4.validado.php<br>
+-Dentro del directorio models: ServerSidePunto4.php<br>
+-Dentro del directorio views: punto4.view.php, y punto4.view.validado.php<br>
+-Se creó la carpeta "diagnosticos" donde se almacenan las imagenes subidas por los clientes.<br><br>
 
-**routes.php** es donde se hace el mapeo URL path -> controlador
-
-**config.php** es el objeto que maneja todas las configuraciones de la instalacion
-
-**core/** es el directorio donde se encuentra toda la funcionalidad generica del proyecto
-
-**controllers/** es donde se alojan todos los controladores
-
-**views/** es donde se encuentran todas las vistas que seran enviadas al usuario
-
-## Agregar una operación
-
-3 cosas deben hacerse:
-
-1. Agregar un archivo al directorio controller/
-2. Agregar un archivo al directorio views/ y que sea utilizado por el controller creado en el paso 1
-3. Agregar el path al archivo routes.php para que el Controller creado en el paso 1 sea invocado
-
-## Faltante
-
-* Falta generar un conector para bases de datos
-* Falta elaborar el concepto de modelo dentro de la estructura
+Para verificar las validaciones del lado del servidor, puede desactivar las validaciones desde el formulario con el agregado del atributo *novalidate*.
