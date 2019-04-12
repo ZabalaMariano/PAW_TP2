@@ -8,7 +8,7 @@ La guía de ejecución para este ejercicio la podrá encontrar en el README.md g
 
 ## Consideraciones
 Para la realización del ejercicio respetamos la estructura MVC proveida en clase. Los scripts y directorios que incluimos son:<br />
--Dentro del directorio controllers: llamaValidarPunto1.php, punto1.php, y puntoValidado.php<br>
+-Dentro del directorio controllers: llamaValidarPunto1.php, punto1.php, y punto1.validado.php<br>
 -Dentro del directorio models: ServerSidePunto1.php<br>
 -Dentro del directorio views: punto1.view.php, y punto1.view.validado.php<br><br>
 Para verificar las validaciones del lado del servidor, puede desactivar las validaciones desde el formulario con el agregado del atributo *novalidate*.
