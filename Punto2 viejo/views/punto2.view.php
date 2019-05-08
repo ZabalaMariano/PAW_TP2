@@ -25,25 +25,19 @@
                     echo "<p class='advertencia'> $error </p>";
                 }
             }
-            if($_POST["altura"]!=-1 && $_POST["altura"]!=null){
-                $altura = $_POST["altura"];
-            }else{
-                $altura = -1;
-            }
-            
         ?>
 
         <p class="advertencia">Obligatorio*</p>
 
         <form name="formulario" method="post" action="ValidarPunto2" oninput="valorAltura.value = altura.valueAsNumber">
             <label for="nombre">*Nombre: </label>
-            <input type="text" name="nombre" value="<?=$nombre?>" maxlength="50" placeholder="Ingrese nombre y apellido" pattern="[A-Za-z\s]+" title="Solo se admiten letras minúsculas,mayúsculas y espacios">
+            <input type="text" name="nombre" value="<?=$nombre?>" maxlength="50" placeholder="Ingrese nombre y apellido" pattern="[A-Za-z\s]+" title="Solo se admiten letras minúsculas,mayúsculas y espacios" required>
 
             <label for="email">*E-mail: </label>
-            <input type="email" name="email" value="<?=$email?>" placeholder="Ingrese dirección de email" title="Ingrese una dirección de email válida: user@dom.com">
+            <input type="email" name="email" value="<?=$email?>" placeholder="Ingrese dirección de email" title="Ingrese una dirección de email válida: user@dom.com" required>
 
             <label for="telefono">*Teléfono: </label>
-            <input type="tel" name="telefono" min="0" value="<?=$telefono?>" placeholder="Ingrese número de teléfono" pattern="[0-9\+][0-9]+" maxlength="13"  title="Solo se admiten números sin espacios ni guiones">
+            <input type="tel" name="telefono" min="0" value="<?=$telefono?>" placeholder="Ingrese número de teléfono" pattern="[0-9\+][0-9]+" maxlength="13"  title="Solo se admiten números sin espacios ni guiones" required>
 
             <label for="edad">Edad: </label>
             <input type="number" name="edad" min="0" max="150" value="<?=$edad?>" >
@@ -52,11 +46,11 @@
             <input type="number" name="talla" min="20" max="45" value="<?=$talla?>">
 
             <label for="altura">Altura: </label>
-            <input type="range" name="altura" min="-1" max="250" value="<?=$altura?>">
-            <p class="cm"><output for="altura" name="valorAltura"><?$altura?></output>cm</p>
+            <input type="range" name="altura" min="0" max="250" value="<?=$altura?>">
+            <p class="cm"><output for="altura" name="valorAltura"><??$altura?></output>cm</p>
 
             <label for="fechaNacimiento">*Fecha de nacimiento: </label>
-            <input type="date" name="fechaNacimiento" value="<?=$fechaNacimiento?>" min="<?=$fecha_min?>" max="<?=$fecha_hoy?>">
+            <input type="date" name="fechaNacimiento" value="<?=$fechaNacimiento?>" min="<?=$fecha_min?>" max="<?=$fecha_hoy?>" required>
 
             <label for="pelo">Color de pelo: </label>
             <select id="1" name="pelo" value="<?=$pelo?>">
@@ -70,7 +64,7 @@
             </select>
 
             <label for="fechaTurno">*Fecha del turno: </label>
-            <input type="date" name="fechaTurno" min="<?=$manana?>" value="<?=$fechaTurno?>">
+            <input type="date" name="fechaTurno" min="<?=$manana?>" value="<?=$fechaTurno?>" required>
 
             <label for="turno">Horario del turno: </label>
             <input type="time" name="turno" min="08:00" max="17:00" step="900" value="<?=$turno?>">
